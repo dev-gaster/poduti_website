@@ -88,7 +88,8 @@ const links = [
 ];
 </script>
 <style scope>
-* Footer Styles */ .footer {
+/* Footer Styles */
+.footer {
     margin-top: 80px;
     padding: 60px 0 20px;
     background: linear-gradient(135deg, #f5f3f0 0%, #e8e5df 100%);
