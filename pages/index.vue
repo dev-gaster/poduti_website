@@ -156,7 +156,7 @@ const navCards = [
     description: "Podut Market - the heart of our local economy.",
     icon: "mdi-store",
     color: "amber-darken-2",
-    link: "/community#market",
+    link: "/community",
   },
 ];
 
