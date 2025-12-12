@@ -1,13 +1,31 @@
 <template>
   <v-app>
     <!-- Header Navigation -->
+    <!-- Mobile Navigation Drawer -->
+    <v-navigation-drawer v-model="drawer" temporary>
+      <template #prepend>
+        <v-toolbar flat color="white">
+          <div class="ml-3">Podut Community</div>
+          <v-spacer></v-spacer>
+          <v-btn icon @click="drawer = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-divider></v-divider>
+      </template>
+      <v-list>
+        <v-list-item v-for="(link, i) in links" :key="i" :to="link.path" link>
+          <v-list-item-title>{{ link.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-app-bar flat color="white" style="
         border-bottom: px solid #e0e0e0 !important;
         backdrop-filter: blur(10px) !important;
       ">
       <v-container fluid class="d-flex align-center">
         <!-- Mobile Menu -->
-        <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
+
         <nuxt-link to="/" class="logo-link">
           <div class="logo">
             <v-img src="/icon.png" alt="Podut Community Logo" contain width="40" />
@@ -30,18 +48,10 @@
         </div>
         <v-spacer />
         <!-- Get involved button -->
-        <v-btn color="primary" variant="flat" rounded dark>Get Involved</v-btn>
+        <v-btn color="primary" class="d-none d-md-flex" variant="flat" rounded dark to="/contact">Get Involved</v-btn>
+        <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
       </v-container>
     </v-app-bar>
-
-    <!-- Mobile Navigation Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary location="right">
-      <v-list>
-        <v-list-item v-for="(link, i) in links" :key="i" :to="link.path" link>
-          <v-list-item-title>{{ link.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
 
     <!-- Main Content -->
     <v-main>
@@ -60,7 +70,6 @@ const links = [
   { title: "School", path: "/school" },
   { title: "Community", path: "/community" },
   { title: "Event", path: "/event" },
-  { title: "Contact", path: "/contact" },
 ];
 </script>
 
