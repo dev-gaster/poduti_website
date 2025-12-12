@@ -56,6 +56,13 @@
     <!-- Main Content -->
     <v-main>
       <slot />
+      <v-bottom-navigation class="d-md-none">
+        <v-btn v-for="(link, i) in bottonNavLinks" :key="i" :to="link.link" exact variant="text">
+          <v-icon>{{ link.icon }}</v-icon>
+
+          <span>{{ link.title }}</span>
+        </v-btn>
+      </v-bottom-navigation>
     </v-main>
 
     <!-- Footer -->
@@ -70,6 +77,12 @@ const links = [
   { title: "School", path: "/school" },
   { title: "Community", path: "/community" },
   { title: "Event", path: "/event" },
+];
+const bottonNavLinks = [
+  { title: "Home", icon: "mdi-home", link: "/" },
+  { title: "Church", icon: "mdi-church", link: "/church" },
+  { title: "School", icon: "mdi-school", link: "/school" },
+  { title: "Community", icon: "mdi-account-group", link: "/community" },
 ];
 </script>
 
