@@ -56,7 +56,7 @@
     <!-- Main Content -->
     <v-main>
       <slot />
-      <v-bottom-navigation class="d-md-none">
+      <v-bottom-navigation grow color="primary" class="d-md-none">
         <v-btn v-for="(link, i) in bottonNavLinks" :key="i" :to="link.link" exact variant="text">
           <v-icon>{{ link.icon }}</v-icon>
 
